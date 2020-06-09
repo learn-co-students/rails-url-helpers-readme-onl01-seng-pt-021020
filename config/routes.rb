@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   resources :posts, only: [:index, :show]
+  #This will create routing methods for posts that we can utilize in our views and controllers.
+  #MVC set up for posts, with index and show actions currently in place.
 end
