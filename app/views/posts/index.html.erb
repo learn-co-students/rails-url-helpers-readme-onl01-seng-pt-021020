@@ -1,0 +1,21 @@
+# <% @posts.each do |post| %>
+#     <div><a href='<%= "/posts/#{post.id}" %>'><%= post.title %></a></div>
+#   <% end %>
+
+# Let's use a link_to method to clean this up and get rid of multiple ERB calls on the same line.
+#   <% @posts.each do |post| %>
+#     <div><%= link_to post.title, "/posts/#{post.id}" %></div>
+#   <% end %>
+
+  #This works and gets the tests passing, however, it can be refactored. Instead of hard-coding the path and using string interpolation, 
+  #let's use post_path and pass in the post argument.
+  
+#   <% @posts.each do |post| %>
+#     <div><%= link_to post.title, post_path(post.id) %></div>
+#   <% end %>
+
+#Rails is smart enough to know that if you pass in the post object as an argument, it should use the ID attribute, 
+#so we'll use this implementation code:
+  <% @posts.each do |post| %>
+    <div><%= link_to post.title, post_path(post) %></div>
+  <% end %>
